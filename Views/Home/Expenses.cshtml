@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Expenses Page";
+}
+
+@model List<Expence>
+
+<div class="container">
+    <div class="text-center mt-5">
+        <h1 class="display-4 mb-4">Expenses List</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Value</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var expense in Model)
+                    {
+                        <tr>
+                            <td>@expense.Id</td>
+                            <td>@expense.Value</td>
+                            <td>@expense.Description</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Custom CSS for table */
+    .table {
+        width: 100%;
+        margin-bottom: 1rem;
+        background-color: #fff;
+    }
+
+        .table th,
+        .table td {
+            padding: 0.75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+
+    .table-bordered {
+        border: 1px solid #dee2e6;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f2f2f2;
+        transition: background-color 0.3s ease;
+    }
+
+    .thead-light {
+        background-color: #f8f9fa;
+        color: #495057;
+    }
+</style>

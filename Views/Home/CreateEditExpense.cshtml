@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Create Expense";
+}
+
+@model Spend_Smart.Models.Expence
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+    </div>
+
+    <form asp-action="SaveExpense" asp-controller="Home" class="needs-validation" novalidate>
+        
+        <div class="row mb-3 mt-5">
+            <div class="col-md-6 offset-md-3">
+                <label for="expenseId" class="form-label">ID</label>
+                <input type="number" class="form-control" id="expenseId" placeholder="Enter Id Here" asp-for="Id" required />
+                <div class="invalid-feedback">
+                    Please enter an ID.
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3 mt-5">
+            <div class="col-md-6 offset-md-3">
+                <label for="expenseValue" class="form-label">Expense Amount</label>
+                <input type="number" class="form-control" id="expenseValue" placeholder="Enter Expense Amount Here" asp-for="Value" step="0.01" required />
+                <div class="invalid-feedback">
+                    Please enter a valid amount.
+                </div>
+            </div>
+        </div>
+         
+        <div class="row mb-4 mt-5">
+            <div class="col-md-6 offset-md-3">
+                <label for="expenseDescription" class="form-label">Expense Description</label>
+                <input type="text" class="form-control" id="expenseDescription" placeholder="Enter Expense Description Here" asp-for="Description" required />
+                <div class="invalid-feedback">
+                    Please enter a description.
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 offset-md-3 text-center">
+                <button type="submit" class="btn btn-primary btn-lg w-75">Save</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+}
