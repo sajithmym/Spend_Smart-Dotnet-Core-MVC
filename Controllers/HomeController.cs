@@ -29,25 +29,26 @@ namespace Spend_Smart.Controllers
         }
         public IActionResult DeleteExpense(int id)
         {
-            var data = _context.Expenses.Find(id);
-            _context.Expenses.Remove(data);
+            var record = _context.Expenses.Find(id);
+            _context.Expenses.Remove(record);
             _context.SaveChanges();
             return RedirectToAction("Expenses");
         }
-
-    public IActionResult EditExpense(int id)
+        public IActionResult CreateEditExpense(int? id)
         {
-            var data = _context.Expenses.Find(id);
-            return View("CreateEditExpense", data);
-        }
-        public IActionResult CreateEditExpense()
-        {
+            if (id != null)
+            {
+                var record = _context.Expenses.Find(id);
+                return View(record);
+            }
             return View();
         }
         public IActionResult SaveExpense(Expence model)
         {
            _context.Expenses.Add(model);
+
            _context.SaveChanges();
+
            return RedirectToAction("Expenses");
         }
 
