@@ -45,9 +45,12 @@ namespace Spend_Smart.Controllers
         }
         public IActionResult SaveExpense(Expence model)
         {
-           _context.Expenses.Add(model);
+            if (model.Id == 0) 
+                _context.Expenses.Add(model);
+            else
+                _context.Expenses.Update(model);
 
-           _context.SaveChanges();
+            _context.SaveChanges();
 
            return RedirectToAction("Expenses");
         }

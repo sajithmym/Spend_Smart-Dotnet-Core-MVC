@@ -12,8 +12,8 @@
         
         <div class="row mb-3 mt-5">
             <div class="col-md-6 offset-md-3">
-                <label for="expenseId" class="form-label">ID</label>
-                <input type="number" class="form-control" id="expenseId" placeholder="Enter Id Here" asp-for="Id" required />
+                <label hidden for="expenseId" class="form-label">ID</label>
+                <input hidden type="number" class="form-control" id="expenseId" placeholder="Enter Id Here" asp-for="Id" />
                 <div class="invalid-feedback">
                     Please enter an ID.
                 </div>
