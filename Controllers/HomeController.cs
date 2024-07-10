@@ -25,6 +25,11 @@ namespace Spend_Smart.Controllers
         public IActionResult Expenses()
         {
             var data = _context.Expenses.ToList();
+
+            var totalExpenses = data.Sum(Expense_var => Expense_var.Value);
+
+            ViewBag.ExpensesTot = totalExpenses;
+
             return View(data);
         }
         public IActionResult DeleteExpense(int id)
