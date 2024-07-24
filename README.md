@@ -1,4 +1,4 @@
-# Spend_Smart-Dotnet-Core-MVC
+# Spend Smart - Dotnet Core MVC 
 
 
 
